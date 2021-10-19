@@ -7,13 +7,13 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class ProductController {
-    @RequestMapping(value = "/Produits", method = RequestMethod.GET)
-    public String listeProduits() {
-        return "un exemple de produit";
+    @RequestMapping(value = "/Products", method = RequestMethod.GET)
+    public String productList() {
+        return "An example of product";
     }
 
-    @RequestMapping(value = "/Produits/{id}", method = RequestMethod.GET)
-    public String afficherUnProduit(@PathVariable int id) {
-        return "Vous avez demandé un produit avec l'id " + id;
+    @RequestMapping(value = "/Products/{id}", method = RequestMethod.GET)
+    public String displayAProduct(@PathVariable int id) {
+        return "You have asked a product with the id " + id;
     }
 }
