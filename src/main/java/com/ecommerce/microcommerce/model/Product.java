@@ -4,11 +4,13 @@ public class Product {
     private int id;
     private String name;
     private int price;
+    private int purchasePrice;
 
-    public Product(int id, String name, int price) {
+    public Product(int id, String name, int price, int purchasePrice) {
         this.id = id;
         this.name = name;
         this.price = price;
+        this.purchasePrice = purchasePrice;
     }
 
     public int getId() {
@@ -45,5 +47,13 @@ public class Product {
                 ", name='" + name + '\'' +
                 ", price=" + price +
                 '}';
+    }
+
+    public int getPurchasePrice() {
+        return purchasePrice;
+    }
+
+    public void setPurchasePrice(int purchasePrice) {
+        this.purchasePrice = purchasePrice;
     }
 }

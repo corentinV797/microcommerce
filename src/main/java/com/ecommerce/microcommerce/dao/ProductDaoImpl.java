@@ -10,9 +10,9 @@ import java.util.List;
 public class ProductDaoImpl implements ProductDao {
     public static List<Product> productList = new ArrayList<Product>();
     static {
-        productList.add(new Product(1, new String("vacuum cleaner"), 200));
-        productList.add(new Product(2, new String("dish washer"), 300));
-        productList.add(new Product(3, new String("fridge"), 550));
+        productList.add(new Product(1, new String("vacuum cleaner"), 200, 100));
+        productList.add(new Product(2, new String("dish washer"), 300, 175));
+        productList.add(new Product(3, new String("fridge"), 550, 400));
     }
     @Override
     public List<Product> findAll() {
