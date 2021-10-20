@@ -1,9 +1,12 @@
 package com.ecommerce.microcommerce.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 public class Product {
     private int id;
     private String name;
     private int price;
+    @JsonIgnore
     private int purchasePrice;
 
     public Product(int id, String name, int price, int purchasePrice) {
