@@ -20,4 +20,9 @@ public class ProductController {
     public Product displayAProduct(@PathVariable int id) {
         return productDao.findById(id);
     }
+
+    @PostMapping(value = "/Products")
+    public void addProduct(@RequestBody Product p) {
+        productDao.save(p);
+    }
 }
