@@ -2,6 +2,7 @@ package com.ecommerce.microcommerce.web.controller;
 
 import com.ecommerce.microcommerce.dao.ProductDao;
 import com.ecommerce.microcommerce.model.Product;
+import com.ecommerce.microcommerce.web.exceptions.ProductNotFindException;
 import com.fasterxml.jackson.databind.ser.FilterProvider;
 import com.fasterxml.jackson.databind.ser.impl.SimpleBeanPropertyFilter;
 import com.fasterxml.jackson.databind.ser.impl.SimpleFilterProvider;
@@ -29,7 +30,11 @@ public class ProductController {
     }
 
     @GetMapping(value = "/Products/{id}")
-    public Product displayAProduct(@PathVariable int id) {
+    public Product displayAProduct(@PathVariable int id) throws ProductNotFindException {
+        Product product = productDao.findById(id);
+        if (product == null) {
+            throw new ProductNotFindException("Product with id : " + id + " cannot be found");
+        }
         return productDao.findById(id);
     }
 
