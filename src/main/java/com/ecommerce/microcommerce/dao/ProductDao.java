@@ -6,6 +6,6 @@ import java.util.List;
 
 public interface ProductDao {
     public List<Product> findAll();
-    public Product ProductfindById(int id);
-    public Product Productsave(Product p);
+    public Product findById(int id);
+    public Product save(Product p);
 }

@@ -18,6 +18,6 @@ public class ProductController {
 
     @GetMapping(value = "/Products/{id}")
     public Product displayAProduct(@PathVariable int id) {
-        return productDao.ProductfindById(id);
+        return productDao.findById(id);
     }
 }

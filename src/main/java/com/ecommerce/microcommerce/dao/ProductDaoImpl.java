@@ -20,7 +20,7 @@ public class ProductDaoImpl implements ProductDao {
     }
 
     @Override
-    public Product ProductfindById(int id) {
+    public Product findById(int id) {
         Product p = productList.stream()
                 .filter(product -> id == product.getId())
                 .findAny()
@@ -29,7 +29,7 @@ public class ProductDaoImpl implements ProductDao {
     }
 
     @Override
-    public Product Productsave(Product p) {
+    public Product save(Product p) {
         productList.add(p);
         return p;
     }
