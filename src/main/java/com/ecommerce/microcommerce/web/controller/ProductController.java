@@ -56,4 +56,9 @@ public class ProductController {
                 .toUri();
         return ResponseEntity.created(location).build();
     }
+
+    @DeleteMapping(value = "/Products/{id}")
+    public void deleteProduct(@PathVariable int id) {
+        productDao.deleteById(id);
+    }
 }
