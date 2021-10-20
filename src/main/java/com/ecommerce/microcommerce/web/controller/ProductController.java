@@ -43,7 +43,6 @@ public class ProductController {
         return productDao.findByNameLike("%" + search + "%");
     }
 
-    /*
     @PostMapping(value = "/Products")
     public ResponseEntity<Void> addProduct(@RequestBody Product p) {
         Product productToAdd = productDao.save(p);
@@ -56,5 +55,5 @@ public class ProductController {
                 .buildAndExpand(productToAdd.getId())
                 .toUri();
         return ResponseEntity.created(location).build();
-    }*/
+    }
 }
