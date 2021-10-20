@@ -61,4 +61,9 @@ public class ProductController {
     public void deleteProduct(@PathVariable int id) {
         productDao.deleteById(id);
     }
+
+    @PutMapping(value = "/Products")
+    public void updateProduct(@RequestBody Product product) {
+        productDao.save(product);
+    }
 }
