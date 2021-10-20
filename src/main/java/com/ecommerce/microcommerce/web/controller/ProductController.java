@@ -20,7 +20,7 @@ public class ProductController {
     ProductDao productDao;
     @GetMapping(value = "/Products")
     public MappingJacksonValue productList() {
-        List<Product> products = productDao.findAll();
+        Iterable<Product> products = productDao.findAll();
         SimpleBeanPropertyFilter myFilter = SimpleBeanPropertyFilter.serializeAllExcept("purchasePrice");
         FilterProvider filterList = new SimpleFilterProvider().addFilter("myDynamicFilter", myFilter);
         MappingJacksonValue filteredProducts = new MappingJacksonValue(products);
@@ -33,6 +33,7 @@ public class ProductController {
         return productDao.findById(id);
     }
 
+    /*
     @PostMapping(value = "/Products")
     public ResponseEntity<Void> addProduct(@RequestBody Product p) {
         Product productToAdd = productDao.save(p);
@@ -45,5 +46,5 @@ public class ProductController {
                 .buildAndExpand(productToAdd.getId())
                 .toUri();
         return ResponseEntity.created(location).build();
-    }
+    }*/
 }
