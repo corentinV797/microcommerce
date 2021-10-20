@@ -33,6 +33,11 @@ public class ProductController {
         return productDao.findById(id);
     }
 
+    @GetMapping(value = "/Products/LimitPrice/{limitPrice}")
+    public List<Product> displayProductPriceGreaterThan(@PathVariable int limitPrice) {
+        return productDao.findByPriceGreaterThan(limitPrice);
+    }
+
     /*
     @PostMapping(value = "/Products")
     public ResponseEntity<Void> addProduct(@RequestBody Product p) {
