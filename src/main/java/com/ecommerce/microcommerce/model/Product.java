@@ -1,9 +1,12 @@
 package com.ecommerce.microcommerce.model;
 
+import org.hibernate.validator.constraints.Length;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.Min;
 
 @Entity
 //@JsonFilter("myDynamicFilter")
@@ -11,8 +14,13 @@ public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+
+    @Length(min = 3, max = 20, message = "Do not respect name standards")
     private String name;
+
+    @Min(value = 1)
     private int price;
+
     private int purchasePrice;
 
     public Product(int id, String name, int price, int purchasePrice) {
