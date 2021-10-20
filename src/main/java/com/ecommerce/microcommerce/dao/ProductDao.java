@@ -11,5 +11,6 @@ public interface ProductDao extends JpaRepository<Product, Integer> {
     public List<Product> findAll();
     public Product findById(int id);
     public List<Product> findByPriceGreaterThan(int limitPrice);
+    public Product findByNameLike(String search);
     public Product save(Product p);
 }

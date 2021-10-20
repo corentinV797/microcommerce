@@ -38,6 +38,11 @@ public class ProductController {
         return productDao.findByPriceGreaterThan(limitPrice);
     }
 
+    @GetMapping(value = "/Products/Name/{search}")
+    public Product displayProductByName(@PathVariable String search) {
+        return productDao.findByNameLike("%" + search + "%");
+    }
+
     /*
     @PostMapping(value = "/Products")
     public ResponseEntity<Void> addProduct(@RequestBody Product p) {
