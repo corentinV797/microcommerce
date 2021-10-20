@@ -66,4 +66,9 @@ public class ProductController {
     public void updateProduct(@RequestBody Product product) {
         productDao.save(product);
     }
+
+    @GetMapping(value = "/Products/CheapPrice/{price}")
+    public List<Product> getCheapProduct(@PathVariable int price) {
+        return productDao.lookForCheapProduct(price);
+    }
 }
