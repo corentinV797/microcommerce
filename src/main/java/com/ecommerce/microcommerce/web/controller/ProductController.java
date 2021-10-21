@@ -77,4 +77,9 @@ public class ProductController {
     public List<Product> getCheapProduct(@PathVariable int price) {
         return productDao.lookForCheapProduct(price);
     }
+
+    @GetMapping(value = "/test/Products/{id}")
+    public Product toBeHidden(@PathVariable int id){
+        return productDao.findById(id);
+    }
 }
