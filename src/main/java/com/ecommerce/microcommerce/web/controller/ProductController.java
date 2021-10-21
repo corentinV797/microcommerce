@@ -6,6 +6,8 @@ import com.ecommerce.microcommerce.web.exceptions.ProductNotFindException;
 import com.fasterxml.jackson.databind.ser.FilterProvider;
 import com.fasterxml.jackson.databind.ser.impl.SimpleBeanPropertyFilter;
 import com.fasterxml.jackson.databind.ser.impl.SimpleFilterProvider;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.converter.json.MappingJacksonValue;
@@ -16,6 +18,7 @@ import javax.validation.Valid;
 import java.net.URI;
 import java.util.List;
 
+@Api(description = "API for CRUD operations on products")
 @RestController
 public class ProductController {
     @Autowired
@@ -30,6 +33,7 @@ public class ProductController {
         return filteredProducts;
     }
 
+    @ApiOperation("Retrieve a product thanks to its id if the product exists")
     @GetMapping(value = "/Products/{id}")
     public Product displayAProduct(@PathVariable int id) throws ProductNotFindException {
         Product product = productDao.findById(id);
